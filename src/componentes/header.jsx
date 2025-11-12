@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import app from './firebase'
+import app from '../firebase'
 import NavbarUsuario from './navbarUsuario';
 import NavbarVisitante from './navbarVisitante';
 
 function Header() {
     const [ usuario, setUsuario ] = useState(null);
-    const auth = getAuth();
+    const auth = getAuth(app);
 
     useEffect(()=> {
         //Detectar usuario
@@ -21,13 +21,14 @@ function Header() {
 
         return () => detectarUsuario();
 
-    });
-    return (
-        <>
-             <NavbarVisitante/>
-             <NavbarUsuario/>
-        </>
-    )
+    })
+
+    if(usuario) {
+        return<NavbarUsuario/>
+    } else{
+        return <NavbarVisitante/>
+    }
+
 }
 
 export default Header;

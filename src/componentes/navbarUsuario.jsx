@@ -4,11 +4,13 @@ import { getAuth, signOut } from 'firebase/auth';
 import './header.css'
 
 function NavbarUsuario() {
-    const auth = getAuth
+    const auth = getAuth()
 
     //funcion para cerrar sesion
     const cerrarSesion = async () => {
         await signOut (auth);
+        console.log('cerrar');
+        
     }
     return (
         <header>
@@ -20,6 +22,7 @@ function NavbarUsuario() {
                         <li><Link to="/caracteristicas">Características</Link></li>
                         <li><Link to="/contacto">Contacto</Link></li>
                         <li><Link to="/peliculas">Peliculas</Link></li>
+                        <li><Link to="/comunidad">Comunidad</Link></li>
                         <li> <button onClick={cerrarSesion}>Cerrar Sesion</button> </li>
                     </ul>
                 </nav>

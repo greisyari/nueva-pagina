@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+
+const provider = new GoogleAuthProvider
 
 function LoginUsuario() {
 
     const [email,setEmail] = useState("")
     const [password, setPassword] = useState("");
     const provider = new GoogleAuthProvider();
+
+    const navigate = useNavigate();
 
     function iniciarSesion(){
         const auth = getAuth();
@@ -15,7 +20,8 @@ function LoginUsuario() {
             // Signed in 
             const user = userCredential.user;
             // ...
-            console.log("jojojo");
+            console.log("inicio de sesion exitoso");
+            navigate("/");
             
         })
         .catch((error) => {

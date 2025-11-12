@@ -1,7 +1,11 @@
 /* Formulario de contacto */
+body{
+  margin: 0% auto;
+}
 .contacto {
-    padding: 3rem 2rem; 
-    background: #fff;
+  margin: auto;
+  padding: 3rem 2rem; 
+  background: #fff;
 }
 .contact-form {
   max-width: 600px;

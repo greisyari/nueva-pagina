@@ -21,6 +21,8 @@ import Contacto from "./pages/contacto";
 import ListaPeliculas from "./componentes/peliculas";
 import LoginUsuario from "./componentes/login";
 import RegistrarCuenta from "./componentes/RegistrarCuenta";
+import Comunidad from "./componentes/comunidad";
+import RutaPrivada from "./componentes/RutaPrivada";
 
 function App() {
   return (
@@ -35,7 +37,16 @@ function App() {
           <Route path="/peliculas" element={<ListaPeliculas />} />
           <Route path="/iniciar-sesion" element={<LoginUsuario />} />
           <Route path="/registrarse" element={<RegistrarCuenta />} />
+          <Route path="/comunidad" element={
+            <>
+              <RutaPrivada>
+                <Comunidad/>
+              </RutaPrivada>
+            </>
+
+          } />
         </Routes>
+        
 
         <Footer />
       </BrowserRouter>
